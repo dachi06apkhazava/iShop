@@ -8,7 +8,7 @@ import Footer from "./components/footer.tsx"
 
 function Root() {
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const [cartCount, setCartCount] = useState(0)
+  const [cartCount] = useState(0)
 
   return (
     <>
