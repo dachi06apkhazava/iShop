@@ -1,8 +1,7 @@
-"use client"
-
 import { useEffect, useState, useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { Filter, Grid3X3, List, Search, X } from "lucide-react"
+import { useCart } from "../context/cartContext"
 
 
 interface Product {
@@ -26,13 +25,13 @@ function Store() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [sortBy, setSortBy] = useState("newest")
   const [showMobileFilters, setShowMobileFilters] = useState(false)
-  const [animationClass, setAnimationClass] = useState("translate-x-full")
   const [isClosing, setIsClosing] = useState(false)
 
   const [selectedCapacities, setSelectedCapacities] = useState<string[]>([])
   const [selectedColors, setSelectedColors] = useState<string[]>([])
   const [selectedModels, setSelectedModels] = useState<string[]>([])
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000])
+  const { addToCart } = useCart()
 
   useEffect(() => {
     fetch("/products.json")
@@ -46,11 +45,6 @@ function Store() {
         setLoading(false)
       })
   }, [])
-  const openMobileFilters = () => {
-  setShowMobileFilters(true)
-  setTimeout(() => setAnimationClass("translate-x-0"), 10)
- }
-
 
  const closeMobileFilters = () => {
  setIsClosing(true)
@@ -360,7 +354,20 @@ function Store() {
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="text-2xl font-bold text-gray-900">${product.price}</div>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium">Add to Cart</button>
+                        <button
+                          onClick={() =>
+                            addToCart({
+                              id: product.id,
+                              name: product.name,
+                              image: product.image,
+                              price: product.price,
+                              quantity: 1,
+                            })
+                          }
+                          className="bg-blue-600 cursor-pointer text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium"
+                        >
+                          Add to Cart
+                        </button>
                       </div>
                     </div>
                   </div>

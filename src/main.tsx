@@ -5,18 +5,19 @@ import App from "./App.tsx"
 import Navbar from "./components/navbar.tsx"
 import Cart from "./components/cart.tsx"
 import Footer from "./components/footer.tsx"
+import { CartProvider } from "./context/cartContext.tsx"
 
 function Root() {
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const [cartCount] = useState(0)
 
   return (
     <>
-      <Navbar cartCount={cartCount} onCartClick={() => setIsCartOpen(true)} />
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-      <App
-      />
-      <Footer/>
+      <CartProvider>
+        <Navbar onCartClick={() => setIsCartOpen(true)} />
+        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+        <App />
+        <Footer />
+      </CartProvider>
     </>
   )
 }
