@@ -44,9 +44,11 @@ function MacBanner() {
     <div className="w-full">
       <div className="flex justify-between mt-12 items-center px-8 py-6 max-w-screen-xl mx-auto">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">iMac</h1>
-        <button className="rounded-full cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-white px-5 py-2 transition">
-          See in Store
-        </button>
+        <a href='/store/imac'>
+          <button className="rounded-full cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-white px-5 py-2 transition">
+            See in Store
+          </button>
+        </a>
       </div>
       <div
         className={`relative h-[800px] overflow-hidden  mx-auto transition-all duration-700 ease-in-out ${

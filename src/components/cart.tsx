@@ -1,6 +1,7 @@
 import React from "react"
 import { useCart } from "../context/cartContext"
 import { Trash2 } from "lucide-react"
+import { useEffect } from "react"
 
 interface CartProps {
   isOpen: boolean
@@ -14,6 +15,16 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
     increaseQty,
     decreaseQty
   } = useCart()
+  
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+      document.documentElement.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+      document.documentElement.style.overflow = ""
+    }
+  }, [isOpen])
 
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,

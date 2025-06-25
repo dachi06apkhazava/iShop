@@ -129,10 +129,11 @@ export default function AirPodsComparison() {
                   <p className="text-2xl font-semibold text-gray-900 mb-4">{product.price}</p>
 
                   <div className="space-y-3">
-                    <button className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full transition-colors duration-200">
-                      Buy
-                    </button>
-
+                    <a href="/store/airpods">
+                      <button className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full transition-colors duration-200">
+                        Buy
+                      </button>
+                    </a>
                     <button className="w-full flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200 group h-10">
                         <span className="cursor-pointer inline-block">Learn more</span>
                         <svg

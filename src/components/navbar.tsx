@@ -22,6 +22,8 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isMenuOpen) return
+
       const currentScrollY = window.scrollY
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100)
       setLastScrollY(currentScrollY)
@@ -29,7 +31,17 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick }) => {
 
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+  }, [lastScrollY, isMenuOpen])
+  
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden"
+      document.documentElement.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+      document.documentElement.style.overflow = ""
+    }
+  }, [isMenuOpen])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 

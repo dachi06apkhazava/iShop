@@ -80,7 +80,7 @@ export default function IpadContainer() {
                 </h2>
                 <p className="text-lg text-gray-600">Dream it up. Jot it down.</p>
                 <button className="cursor-pointer text-blue-600 hover:text-blue-700 font-medium text-lg transition-colors duration-200 inline-flex items-center gap-1">
-                  Learn more
+                  <a href="/store/ipad">Learn more</a>
                   <span className="transform transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </button>
               </div>
@@ -126,7 +126,7 @@ export default function IpadContainer() {
                 </h2>
                 <p className="text-lg text-gray-600">Type it out. Take it with you.</p>
                 <button className="cursor-pointer text-blue-600 hover:text-blue-700 font-medium text-lg transition-colors duration-200 inline-flex items-center gap-1">
-                  Learn more
+                  <a href="/store/ipad">Learn more</a>
                   <span className="transform transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </button>
               </div>
